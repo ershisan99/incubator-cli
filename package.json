@@ -1,0 +1,16 @@
+{
+  "name": "incubator-cli",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": "Andres",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "incubator": "./bin/index.js"
+  },
+  "dependencies": {
+    "commander": "^9.4.0",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^9.1.0"
+  }
+}
