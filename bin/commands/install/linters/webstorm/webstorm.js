@@ -8,6 +8,9 @@ export const installForWebstorm = () => {
   const assetsCopyPath = currentPath
   const webstormAssetsPath = path.join(assetsPath, 'webstorm')
   const webstormAssetsDirPath = path.join(assetsCopyPath, '.idea')
+  if (!fs.existsSync(webstormAssetsDirPath)) {
+    fs.mkdirSync(webstormAssetsDirPath)
+  }
   fs.copy(webstormAssetsPath, webstormAssetsDirPath, (err) => {
     if (err) throw new Error(err)
     console.log('Webstorm project settings applied.')
