@@ -2,11 +2,15 @@
   "name": "incubator-cli",
   "version": "1.0.3",
   "main": "index.js",
-  "author": "Andres",
+  "author": "ershisan99",
   "license": "MIT",
   "type": "module",
   "bin": {
     "incubator": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ershisan99/incubator-cli.git"
   },
   "dependencies": {
     "commander": "^9.4.0",
