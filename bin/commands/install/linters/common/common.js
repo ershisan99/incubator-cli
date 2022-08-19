@@ -1,4 +1,3 @@
-import { exec } from 'child_process'
 import fs from 'fs-extra'
 import path from 'path'
 import { PKG_ROOT } from '../../../../consts.js'
@@ -27,10 +26,8 @@ export const commonInstall = (packageManager) => {
     if (err) throw new Error(err)
     console.log('Config files copied.')
   })
-  fs.writeFile(packageJsonPath, JSON.stringify(content), (err) => {
+  fs.writeFileSync(packageJsonPath, JSON.stringify(content), (err) => {
     if (err) throw new Error(err)
     console.log('package.json updated')
   })
-  const installProcess = exec(`${packageManager} install`)
-  installProcess.stdout.pipe(process.stdout)
 }
