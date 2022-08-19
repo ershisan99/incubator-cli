@@ -17,7 +17,13 @@ const questions = [
     name: 'packageManager',
     message: 'Choose your package manager:',
     choices: ['yarn', 'npm'],
-  }
+  },
+  {
+    type: 'list',
+    name: 'autoFix',
+    message: 'Do you want to auto-fix your code after installation?',
+    choices: ['yes', 'no'],
+  },
 ]
 
 install.command('linters').action(async () => {
