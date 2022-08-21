@@ -6,16 +6,15 @@
 npm install -g incubator-cli
 ```
 
-```bash
-yarn global add incubator-cli  
-```
-
 
 ## Usage
 
+
 ### Linters
 
+QUIT WEBSTORM BEFORE EXECUTING THIS COMMAND:
 ```bash
+
 incubator install linters
 ```
 
