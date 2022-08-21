@@ -33,11 +33,14 @@ export const installForWebstorm = () => {
         "nodejs_package_manager_path": "npm",
         "prettierjs.PrettierConfiguration.Package": "PRETTIER_PATH",
         "settings.editor.selected.configurable": "settings.javascript.prettier",
-        "ts.external.directory.path": "/Users/andres/dev/work/test6ts/node_modules/typescript/lib",
+        "ts.external.directory.path": "TS_EXTERNAL_PATH",
+
         "vue.rearranger.settings.migration": "true"
       }
     }]]></component>
-      </project>`.replace('PRETTIER_PATH', path.join(process.cwd(), '/node_modules/prettier'))
+      </project>`
+    .replace('PRETTIER_PATH', path.join(process.cwd(), '/node_modules/prettier'))
+    .replace('TS_EXTERNAL_PATH', path.join(process.cwd(), '/node_modules/typescript/lib'))
 
   fs.writeFile(path.join(webstormAssetsDirPath, 'workspace.xml'), newXml)
 }
