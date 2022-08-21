@@ -8,9 +8,9 @@ export const installForWebstorm = () => {
   const assetsCopyPath = currentPath
   const webstormAssetsPath = path.join(assetsPath, 'webstorm')
   const webstormAssetsDirPath = path.join(assetsCopyPath, '.idea')
-  if (fs.existsSync) fs.rmSync(webstormAssetsDirPath, { recursive: true, force: true })
-
-  fs.mkdirSync(webstormAssetsDirPath)
+  if (!fs.existsSync(webstormAssetsDirPath)) {
+    fs.mkdirSync(webstormAssetsDirPath)
+  } else fs.unlinkSync(path.join(webstormAssetsDirPath, 'workspace.xml'))
 
   fs.copy(webstormAssetsPath, webstormAssetsDirPath, (err) => {
     if (err) throw new Error(err)
