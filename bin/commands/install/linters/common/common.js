@@ -1,9 +1,9 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { PKG_ROOT } from '../../../../consts.js'
 import { getDependencies } from '../../../../assets/dependencies.js'
+import { PKG_ROOT } from '../../../../consts.js'
 
-export const commonInstall = (packageManager) => {
+export const commonInstall = async (packageManager) => {
   const assetsPath = path.join(PKG_ROOT, 'bin/assets')
   const commonAssetsPath = path.join(assetsPath, 'common')
   const currentPath = process.cwd()
@@ -13,9 +13,11 @@ export const commonInstall = (packageManager) => {
   let content = JSON.parse(file_content)
   const packageJsonExists = fs.existsSync(packageJsonPath)
   let devDependencies = content.devDependencies
+  let newDeps = await getDependencies(devDependencies)
+  console.log(newDeps)
   content = {
     ...content,
-    devDependencies: getDependencies(devDependencies),
+    devDependencies: newDeps,
   }
   if (!packageJsonExists) {
     console.error('package.json not found')
