@@ -16,7 +16,7 @@ export const startInstall = async (args) => {
   const autofix = async (autofixBool) => {
     if (autofixBool === 'yes') {
       const packageManagerNpx = packageManager === 'yarn' ? 'yarn' : 'npx'
-      const eslintFixProcess = execAsync(`${packageManagerNpx} eslint --fix .`)
+      const eslintFixProcess = execAsync(`${packageManagerNpx} eslint --fix . --ext .js,.jsx,.ts,.tsx src`)
       const prettierFixProcess = execAsync(`${packageManagerNpx} prettier --write .`)
       const stylelintFixProcess = execAsync(
         `${packageManagerNpx} stylelint "**/*.{css,scss}" --fix`
